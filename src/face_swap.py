@@ -1,7 +1,6 @@
 import numpy as np
 import cv2
 from video import create_capture
-import copy
 
 def detect(img, cascade):
     rects = cascade.detectMultiScale(img, scaleFactor=1.3, minNeighbors=4, minSize=(30, 30), flags=cv2.CASCADE_SCALE_IMAGE)
@@ -9,6 +8,12 @@ def detect(img, cascade):
         return []
     rects[:,2:] += rects[:,:2]
     return rects
+
+def get_cam_frame(cam):
+    ret, img = cam.read()
+    # smaller frame size - things run a lot smoother than a full screen img
+    img = cv2.resize(img, (800, 450))
+    return img
 
 def main():
     # Camera 0 is usually the built in webcam camera... also most people only have 1 webcam on their laptop
@@ -21,9 +26,7 @@ def main():
     cascade = cv2.CascadeClassifier(haar_classifier)
 
     while True:
-        ret, img = cam.read()
-        # smaller frame size - things run a lot smoother than a full screen img
-        img = cv2.resize(img, (800, 450))
+        img = get_cam_frame(cam)
 
         # classifier wants things in black and white
         bw = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
