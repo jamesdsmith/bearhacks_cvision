@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from video import create_capture
+from opencv.video import create_capture
 
 # Demo program to test if the webcam on your computer is working (should pop up a window with the webcam feed)
 

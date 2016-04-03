@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from video import create_capture
+from opencv.video import create_capture
 
 def detect(img, cascade):
     rects = cascade.detectMultiScale(img, scaleFactor=1.3, minNeighbors=4, minSize=(30, 30), flags=cv2.CASCADE_SCALE_IMAGE)

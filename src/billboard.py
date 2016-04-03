@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from video import create_capture
+from opencv.video import create_capture
 
 def get_cam_frame(cam):
     ret, img = cam.read()
