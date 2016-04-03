@@ -2,6 +2,8 @@ import numpy as np
 import cv2
 from opencv.video import create_capture
 
+# Takes an image from the user's webcam and transforms it to be the same shape as a billboard on times square.
+
 def get_cam_frame(cam):
     ret, img = cam.read()
     # smaller frame size - things run a lot smoother than a full screen img

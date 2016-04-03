@@ -2,6 +2,9 @@ import numpy as np
 import cv2
 from opencv.video import create_capture
 
+# Once the camera has detected two faces, it will swap the bounding box of the faces. Rudimentary face swap app!
+# There are many improvements that should be made for it to be a good looking face swap
+
 def detect(img, cascade):
     rects = cascade.detectMultiScale(img, scaleFactor=1.3, minNeighbors=4, minSize=(30, 30), flags=cv2.CASCADE_SCALE_IMAGE)
     if len(rects) == 0:
