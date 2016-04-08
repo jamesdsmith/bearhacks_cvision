@@ -22,7 +22,7 @@ def main():
     # Camera 0 is usually the built in webcam camera... also most people only have 1 webcam on their laptop
     cam = create_capture(0)
     
-    lbp_classifier = "../data/lbpcascade_frontalface.xml"
+    # lbp_classifier = "../data/lbpcascade_frontalface.xml"
     haar_classifier = "../data/haarcascade_frontalface_default.xml"
 
     # use the haar classifier for now, it seems to work a little bit better
@@ -39,8 +39,8 @@ def main():
         final = img.copy()
 
         # Mostly useful for debugging
-        #for x1, y1, x2, y2 in rects:
-        #    cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
+        # for x1, y1, x2, y2 in rects:
+        #     cv2.rectangle(img, (x1, y1), (x2, y2), (0,255,0), 2)
 
         # Have we detected at least 2 faces?
         if len(rects) > 1:
